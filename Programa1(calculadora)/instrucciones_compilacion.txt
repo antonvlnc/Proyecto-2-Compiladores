@@ -1,0 +1,13 @@
+
+
+
+bison -d calc.y
+
+
+flex calc.l
+
+
+gcc calc.tab.c lex.yy.c
+
+
+./a.out 
