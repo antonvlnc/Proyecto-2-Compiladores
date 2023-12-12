@@ -2,10 +2,10 @@
     #include <stdio.h>
     #include <stdlib.h>
     #include <string.h>
-    #define MAX_LENGTH 100  // Definir MAX_LENGTH aquí
-    char *buffer;           
-    int buffer_index;       
-    int length;             
+    #define MAX_LENGTH 100
+    char *buffer;
+    int buffer_index;
+    int length;
     int yylex(void);
     void yyerror(char *);
     void reverseAndPrint(char *str, int length);
@@ -18,7 +18,7 @@
 
 input:
     /* empty */
-    | input sequence '\n'  { reverseAndPrint(buffer, buffer_index); free(buffer); buffer_index = 0; }
+    | input sequence '\n'  { reverseAndPrint(buffer, buffer_index); buffer_index = 0; }
     ;
 
 sequence:
@@ -50,6 +50,7 @@ int main(void) {
     }
     freopen("cadenas.txt", "r", stdin);
     yyparse();
+    free(buffer);  // Liberar la memoria aquí, después de que se haya completado la lectura del archivo
     return 0;
 }
 
