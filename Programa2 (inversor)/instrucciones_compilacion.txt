@@ -1,0 +1,14 @@
+
+
+bison -d inverso.y
+
+(incluir en la cabecera del lex el archivo que se genera después del primer comando "#include 'inverso.tab.h'")
+
+flex inverso.l
+
+gcc inverso.tab.c lex.yy.c 
+
+./a.out
+
+
+ESTE PROGRAMA NO UTILIZA UN ARCHIVO PARA LA ENTRADA, ESTA SERÁ POR TECLADO DADA POR EL USUARIO E IMPRIMIRÁ LA CADENA DE FORMA INVERSA.
